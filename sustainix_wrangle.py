@@ -36,13 +36,13 @@ jsonfile.write('{"sustain":"all_data","children":[')
 for n, group in df.groupby('sector'):
     #for each sector write the name
     sect_df = df[df['sector']==n]
-    jsonfile.write('{"name":"')
+    jsonfile.write('{"sector":"')
     jsonfile.write(n)
     #and then teh children
     jsonfile.write('","children":[')
     rowcount = 0
     for i,row in sect_df.iterrows():
-        jsonfile.write('{"name":"' + str(row['rank16']) + '"')
+        jsonfile.write('{"sector":"' + str(row['rank16']) + '"')
         jsonfile.write(',"size":"' + str(row['market_cap'])+ '"')
         jsonfile.write(',"company":"' + row['company'] + '"')
         for l in list(df.columns.values):
